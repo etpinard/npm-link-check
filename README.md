@@ -22,7 +22,7 @@ npm install npm-link-check
 
 ## Usage
 
-##### CLI
+#### CLI
 
 ```bash
 # to check current working directory
@@ -32,7 +32,7 @@ npm-link-check
 npm-link-check path/to/project/root
 ```
 
-##### As a pre-version check
+#### As a pre-version check
 
 In this era of bundled and transpiled javascript, it is common for projects to
 build a distributed version when running the [`npm
