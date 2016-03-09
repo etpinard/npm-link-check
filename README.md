@@ -26,7 +26,7 @@ npm install npm-link-check
 
 ```bash
 # to check current working directory
-npm-link-check path/to/project/root
+npm-link-check
 
 # to check arbitrary project
 npm-link-check path/to/project/root
