@@ -1,5 +1,11 @@
 # npm-link-check
 
+[![npm version](https://badge.fury.io/js/npm-link-check.svg)](https://badge.fury.io/js/npm-link-check)
+
+[![Build Status](https://travis-ci.org/etpinard/npm-link-check.svg?branch=master)](https://travis-ci.org/etpinard/npm-link-check)
+[![Dependency Status](https://david-dm.org/etpinard/npm-link-check.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check)
+[![devDependency Status](https://david-dm.org/etpinar/npm-link-check/dev-status.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check#info=devDependencies)
+
 CLI utility that checks whether a project's current node modules tree contains npm-link'ed packages.
 
 So that you don't build a distributed bundle containing linked packages ever again!
@@ -19,6 +25,10 @@ npm install npm-link-check
 ##### CLI
 
 ```bash
+# to check current working directory
+npm-link-check path/to/project/root
+
+# to check arbitrary project
 npm-link-check path/to/project/root
 ```
 
