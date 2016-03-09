@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/etpinard/npm-link-check.svg?branch=master)](https://travis-ci.org/etpinard/npm-link-check)
 [![Dependency Status](https://david-dm.org/etpinard/npm-link-check.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check)
-[![devDependency Status](https://david-dm.org/etpinar/npm-link-check/dev-status.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check#info=devDependencies)
+[![devDependency Status](https://david-dm.org/etpinard/npm-link-check/dev-status.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check#info=devDependencies)
 
 CLI utility that checks whether a project's current node modules tree contains npm-link'ed packages.
 
