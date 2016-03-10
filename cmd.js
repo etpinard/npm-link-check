@@ -4,9 +4,8 @@ var path = require('path');
 var chalk = require('chalk');
 var npmLinkCheck = require('./index');
 
-var pathToRoot = process.argv[2] ?
-        path.join(__dirname, process.argv[2]) :
-        __dirname;
+var pathToRoot = process.argv[2] ? process.argv[2] : '.';
+
 
 function cb(pkgName) {
     process.stderr.write([
