@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/etpinard/npm-link-check#readme",
   "dependencies": {
-    "chalk": "^1.1.1",
     "glob": "^7.0.3"
   },
   "devDependencies": {
