@@ -16,7 +16,7 @@ So that you don't build a distributed bundle containing linked packages ever aga
 # for CLI use:
 npm install -g npm-link-check
 
-# for API or npm-script use:
+# for npm-script use:
 npm install npm-link-check
 ```
 
