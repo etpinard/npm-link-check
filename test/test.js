@@ -48,6 +48,14 @@ describe('simple project', function() {
             assert.ok(foundPathList.indexOf(pathToModule) !== -1);
         });
     });
+
+    it('should make cmd.js throw an error', function(done) {
+        exec(CMD + pathToProject, function(err, stdout, stderr) {
+            assert.ok(/Some npm-link'ed packaged were found:/.test(stderr));
+
+            done();
+        });
+    });
 });
 
 describe('nested project', function() {
@@ -95,6 +103,14 @@ describe('nested project', function() {
         });
 
         setTimeout(done, DELAY);
+    });
+
+    it('should make cmd.js throw an error', function(done) {
+        exec(CMD + pathToProject, function(err, stdout, stderr) {
+            assert.ok(/Some npm-link'ed packaged were found:/.test(stderr));
+
+            done();
+        });
     });
 });
 
