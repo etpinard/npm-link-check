@@ -85,7 +85,7 @@ describe('nested project', function() {
 
     it('should list the linked paths', function(done) {
         ['module1111', 'module23', 'module3'].forEach(function(moduleName) {
-            glob(pathToProject + '/**/' + 'module1111', function(err, files) {
+            glob(pathToProject + '/**/' + moduleName, function(err, files) {
                 if(err) throw err;
 
                 var pathToModule = files[0];
