@@ -21,7 +21,7 @@ function globNodeModules(startPath, cb) {
             fs.lstat(foundPath, function(err, stats) {
 
                 if(stats.isDirectory()) {
-                    globNodeModules(foundPath);
+                    globNodeModules(foundPath, cb);
                 }
                 else if(stats.isSymbolicLink()){
                     var pkgName = path.basename(foundPath);
