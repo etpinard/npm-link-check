@@ -1,8 +1,10 @@
 var path = require('path');
 var assert = require('assert');
 var glob = require('glob');
+var exec = require('child_process').exec;
 var npmLinkCheck = require('../index.js');
 
+var CMD = 'node ' + path.join(__dirname, '..', 'cmd.js') + ' ';
 var DELAY = 1000;
 
 describe('simple project', function() {
@@ -95,3 +97,14 @@ describe('nested project', function() {
     });
 });
 
+
+describe('error handling', function() {
+
+    it('should throw an error when targeted project does not have a node_modules folder', function(done) {
+        exec(CMD + 'build/', function(err, stdout, stderr) {
+            assert.ok(/build\/ does not have a node_modules folder./.test(stderr));
+
+            done();
+        });
+    });
+});

@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
+var fs = require('fs');
 var path = require('path');
 var npmLinkCheck = require('./index');
 
 var pathToRoot = process.argv[2] ? process.argv[2] : '.';
+var pathToNodeModules = path.join(pathToRoot, 'node_modules');
 var list = [];
-
 
 function cb(pkgName, foundPath) {
     list.push([
@@ -22,7 +23,13 @@ function log() {
     throw new Error(header + '\n' + list.join('\n') + '\n');
 }
 
-npmLinkCheck(pathToRoot, cb);
+fs.stat(pathToNodeModules, function(err, stats) {
+    if(err || !stats.isDirectory()) {
+        throw new Error(pathToRoot + ' does not have a node_modules folder.');
+    }
+
+    npmLinkCheck(pathToRoot, cb);
+});
 
 process.on('exit', function() {
     if(list.length) log();
