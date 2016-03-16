@@ -7,8 +7,9 @@ var npmLinkCheck = require('../index.js');
 var CMD = 'node ' + path.join(__dirname, '..', 'cmd.js') + ' ';
 var DELAY = 1000;
 
+
 describe('simple project', function() {
-    var makeProjectSimple = require('./cases/project_simple');
+    var makeProject = require('./cases/project_simple');
     var pathToProject = path.join(__dirname, 'build', 'project_simple');
 
     var pkgList = [];
@@ -20,7 +21,7 @@ describe('simple project', function() {
     }
 
     before(function(done) {
-        makeProjectSimple();
+        makeProject();
         npmLinkCheck(pathToProject, cb);
 
         setTimeout(done, DELAY);
@@ -50,7 +51,7 @@ describe('simple project', function() {
 });
 
 describe('nested project', function() {
-    var makeProjectNested = require('./cases/project_nested');
+    var makeProject = require('./cases/project_nested');
     var pathToProject = path.join(__dirname, 'build', 'project_nested');
 
     var pkgList = [];
@@ -62,7 +63,7 @@ describe('nested project', function() {
     }
 
     before(function(done) {
-        makeProjectNested();
+        makeProject();
         npmLinkCheck(pathToProject, cb);
 
         setTimeout(done, DELAY);
@@ -97,6 +98,42 @@ describe('nested project', function() {
     });
 });
 
+describe('clean project', function() {
+    var makeProject = require('./cases/project_clean');
+    var pathToProject = path.join(__dirname, 'build', 'project_clean');
+
+    var pkgList = [];
+    var foundPathList = [];
+
+    function cb(pkgName, foundPath) {
+        pkgList.push(pkgName);
+        foundPathList.push(foundPath);
+    }
+
+    before(function(done) {
+        makeProject();
+        npmLinkCheck(pathToProject, cb);
+
+        setTimeout(done, DELAY);
+    });
+
+    it('should have 0 linked module detected', function() {
+        assert.equal(pkgList.length, 0);
+    });
+
+    it('should have 0 linked paths detected', function() {
+        assert.equal(foundPathList.length, 0);
+    });
+
+    it('should not make cmd.js throw an error', function(done) {
+        exec(CMD + pathToProject, function(err) {
+            assert.equal(err, null);
+
+            done();
+        });
+    });
+
+});
 
 describe('error handling', function() {
 
