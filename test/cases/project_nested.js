@@ -1,10 +1,10 @@
 var fs = require('fs-extra');
 var path = require('path');
+var isPlainObject = require('is-plain-object');
 
 var buildPath = path.join(__dirname, '..', 'build');
 var dirName = path.basename(__filename).split('.')[0];
 var dirPath = path.join(buildPath, dirName);
-var nodeMoulesPath = path.join(dirPath, 'node_modules');
 var pathToFakeLinkTarget = path.join(buildPath, 'fake.js');
 
 var fakeContent = 'module.exports = {};\n';
@@ -14,28 +14,53 @@ var fakeModules = {
         module11: {
             module111: {
                 module1111: 'link'
-            }
-        },
+            },
+            module112: ''
+        }
     },
     module2: {
+        module21: '',
+        module22: '',
+        module23: 'link',
+        module24: ''
     },
     module3: 'link'
 };
 
-fs.emptyDirSync(dirPath);
-fs.emptyDirSync(nodeMoulesPath);
-fs.writeFileSync(pathToFakeLinkTarget, fakeContent);
+function getNodeModulesPath(rootPath) {
+    return path.join(rootPath, 'node_modules');
+}
 
-fakeModules.forEach(function(fakeModule) {
-    var pathToFakeModule = path.join(nodeMoulesPath, fakeModule);
-    var pathToFakeIndex = path.join(pathToFakeModule, 'index.js');
+function makeModules(rootPath, fakeModules) {
+    Object.keys(fakeModules).forEach(function(fakeModuleName) {
+        var fakeModule = fakeModules[fakeModuleName];
+        var nodeModulesPath = getNodeModulesPath(rootPath);
+        var pathToFakeModule = path.join(nodeModulesPath, fakeModuleName);
 
-    fs.emptyDirSync(pathToFakeModule);
-    fs.writeFileSync(pathToFakeIndex, fakeContent);
-});
+        if(isPlainObject(fakeModule)) {
+            fs.emptyDirSync(pathToFakeModule);
+            makeModules(pathToFakeModule, fakeModule);
+        }
+        else {
+            if(fakeModule === '') {
+                var pathToFakeIndex = path.join(pathToFakeModule, 'index.js');
 
-fakeLinkedModules.forEach(function(fakeLinkedModule) {
-    var pathToFakeModule = path.join(nodeMoulesPath, fakeLinkedModule);
+                fs.emptyDirSync(pathToFakeModule);
+                fs.writeFileSync(pathToFakeIndex, fakeContent);
+            }
+            else if(fakeModule === 'link') {
+                fs.ensureSymlinkSync(pathToFakeLinkTarget, pathToFakeModule);
+            }
+        }
 
-    fs.ensureSymlinkSync(pathToFakeLinkTarget, pathToFakeModule);
-});
+        return;
+    });
+}
+
+module.exports = function make() {
+    fs.emptyDirSync(dirPath);
+    fs.emptyDirSync(getNodeModulesPath(dirPath));
+    fs.writeFileSync(pathToFakeLinkTarget, fakeContent);
+
+    makeModules(dirPath, fakeModules);
+};
