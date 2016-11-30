@@ -14,7 +14,12 @@ module.exports = function npmLinkCheck(pathToRoot, cb) {
 };
 
 function globNodeModules(startPath, cb) {
-    var pathToNodeModules = path.join(startPath, 'node_modules');
+    // if we have a scope we should check if the modules inside the folder is linked 
+    if (startPath.includes('@')) {
+        var pathToNodeModules = startPath;
+    } else {
+        var pathToNodeModules = path.join(startPath, 'node_modules');
+    }
 
     glob(pathToNodeModules + '/*', function(err, foundPaths) {
         foundPaths.forEach(function(foundPath) {
