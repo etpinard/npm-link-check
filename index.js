@@ -14,23 +14,24 @@ module.exports = function npmLinkCheck(pathToRoot, cb) {
 };
 
 function globNodeModules(startPath, cb) {
-    // if we have a scope we should check if the modules inside the folder is linked 
+    var pathToNodeModules;
+
+    // if we have a scope we should check if the modules inside the folder is linked
     if (startPath.includes('@')) {
-        var pathToNodeModules = startPath;
+        pathToNodeModules = startPath;
     } else {
-        var pathToNodeModules = path.join(startPath, 'node_modules');
+        pathToNodeModules = path.join(startPath, 'node_modules');
     }
 
     glob(pathToNodeModules + '/*', function(err, foundPaths) {
         foundPaths.forEach(function(foundPath) {
             fs.lstat(foundPath, function(err, stats) {
 
-                if(stats.isDirectory()) {
+                if (stats.isDirectory()) {
                     globNodeModules(foundPath, cb);
                 }
-                else if(stats.isSymbolicLink()){
+                else if (stats.isSymbolicLink()) {
                     var pkgName = path.basename(foundPath);
-
                     cb(pkgName, foundPath);
                 }
 
