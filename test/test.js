@@ -114,6 +114,35 @@ describe('nested project', function() {
     });
 });
 
+
+describe('scoped project', function() {
+    var makeProject = require('./cases/project_scoped');
+    var pathToProject = path.join(__dirname, 'build', 'project_scoped');
+
+    var pkgList = [];
+    var foundPathList = [];
+
+    function cb(pkgName, foundPath) {
+        pkgList.push(pkgName);
+        foundPathList.push(foundPath);
+    }
+
+    before(function(done) {
+        makeProject();
+        npmLinkCheck(pathToProject, cb);
+
+        setTimeout(done, DELAY);
+    });
+
+    it('should have 2 paths detected', function() {
+        assert.equal(pkgList.length, 2);
+    });
+
+    it('should have 2 linked paths detected', function() {
+        assert.equal(foundPathList.length, 2);
+    });
+});
+
 describe('clean project', function() {
     var makeProject = require('./cases/project_clean');
     var pathToProject = path.join(__dirname, 'build', 'project_clean');
