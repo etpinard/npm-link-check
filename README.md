@@ -10,6 +10,9 @@ CLI utility that checks whether a project's current node modules tree contains n
 
 So that you don't build a distributed bundle containing linked packages ever again!
 
+As of `v1.2.0`, `npm-link-check` even works with npm [scoped](https://docs.npmjs.com/misc/scope) packages. Big ups [@Istenes](https://github.com/Istenes) for that PR :beers:
+
+
 ## Install
 
 ```bash
@@ -43,9 +46,9 @@ In your project's `package.json`, add:
 
 ```json
 {
-    "scripts": {
-        "preversion": "npm-link-check"
-    }
+  "scripts": {
+    "preversion": "npm-link-check"
+  }
 }
 ```
 
