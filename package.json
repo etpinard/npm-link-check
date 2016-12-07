@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "cmd.js",
   "scripts": {
-    "test": "mocha"
+    "test": "standard | snazzy && mocha"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,8 @@
     "assert": "^1.4.1",
     "fs-extra": "^1.0.0",
     "is-plain-object": "^2.0.1",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "snazzy": "^5.0.0",
+    "standard": "^8.6.0"
   }
 }
