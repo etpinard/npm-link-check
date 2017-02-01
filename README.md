@@ -58,6 +58,6 @@ aborted.
 
 ## Credits
 
-2016 Étienne Tétreault-Pinard. MIT License
+2017 Étienne Tétreault-Pinard. MIT License
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
