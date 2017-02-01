@@ -5,7 +5,9 @@
   "main": "index.js",
   "bin": "cmd.js",
   "scripts": {
-    "test": "standard | snazzy && mocha"
+    "test": "standard | snazzy && mocha",
+    "cover": "nyc npm test",
+    "coveralls": "npm run cover && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -28,9 +30,11 @@
   },
   "devDependencies": {
     "assert": "^1.4.1",
+    "coveralls": "^2.11.15",
     "fs-extra": "^2.0.0",
     "is-plain-object": "^2.0.1",
     "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
     "snazzy": "^6.0.0",
     "standard": "^8.6.0"
   }
