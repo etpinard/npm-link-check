@@ -1,5 +1,7 @@
 # npm-link-check
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/etpinard/npm-link-check.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/npm-link-check.svg)](https://badge.fury.io/js/npm-link-check)
 
 [![Build Status](https://travis-ci.org/etpinard/npm-link-check.svg?branch=master)](https://travis-ci.org/etpinard/npm-link-check)
