@@ -5,6 +5,8 @@
 [![npm version](https://badge.fury.io/js/npm-link-check.svg)](https://badge.fury.io/js/npm-link-check)
 
 [![Build Status](https://travis-ci.org/etpinard/npm-link-check.svg?branch=master)](https://travis-ci.org/etpinard/npm-link-check)
+[![Coverage Status](https://coveralls.io/repos/github/etpinard/npm-link-check/badge.svg?branch=master)](https://coveralls.io/github/etpinard/npm-link-check?branch=master)
+
 [![Dependency Status](https://david-dm.org/etpinard/npm-link-check.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check)
 [![devDependency Status](https://david-dm.org/etpinard/npm-link-check/dev-status.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check#info=devDependencies)
 
