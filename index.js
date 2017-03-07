@@ -35,8 +35,6 @@ function globNodeModules (startPath, cb) {
           var pkgName = path.basename(foundPath)
           cb(pkgName, foundPath)
         }
-
-        return
       })
     })
   })

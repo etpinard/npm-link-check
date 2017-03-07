@@ -50,8 +50,6 @@ function makeModules (rootPath, fakeModules) {
         fs.ensureSymlinkSync(pathToFakeLinkTarget, pathToFakeModule)
       }
     }
-
-    return
   })
 }
 
