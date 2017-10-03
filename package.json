@@ -33,7 +33,7 @@
     "coveralls": "^2.13.0",
     "fs-extra": "^4.0.0",
     "is-plain-object": "^2.0.1",
-    "mocha": "^3.3.0",
+    "mocha": "^4.0.0",
     "nyc": "^11.0.1",
     "snazzy": "^7.0.0",
     "standard": "^10.0.0"
