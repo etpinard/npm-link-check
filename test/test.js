@@ -18,7 +18,7 @@ describe('simple project', function () {
 
   function cb (pkgName, foundPath) {
     pkgList.push(pkgName)
-    foundPathList.push(foundPath)
+    foundPathList.push(path.normalize(foundPath))
   }
 
   before(function (done) {
