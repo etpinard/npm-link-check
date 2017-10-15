@@ -20,7 +20,8 @@ function cb (pkgName, foundPath) {
 function log () {
   var header = 'Some npm-link\'ed packaged were found:'
 
-  throw new Error(header + '\n' + list.join('\n') + '\n')
+  console.error(header + '\n' + list.join('\n') + '\n')
+  process.exitCode = 1
 }
 
 fs.stat(pathToNodeModules, function (err, stats) {
