@@ -1,6 +1,6 @@
 {
   "name": "npm-link-check",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "CLI utility that checks whether a project's current node modules tree contains npm-link'ed packages",
   "main": "index.js",
   "bin": "cmd.js",
