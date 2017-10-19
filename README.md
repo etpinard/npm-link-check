@@ -38,6 +38,15 @@ npm-link-check
 npm-link-check path/to/project/root
 ```
 
+`npm-link-check` will log something like:
+
+```
+Some npm-link\'ed packaged were found:
+    - package dummy (at node_modules/dummy) is linked
+```
+
+and exit with code `1` if one or many packages npm-link'ed are found.
+
 #### As a pre-version check
 
 In this era of bundled and transpiled javascript, it is common for projects to
