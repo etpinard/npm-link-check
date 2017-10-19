@@ -45,7 +45,7 @@ Some npm-link\'ed packaged were found:
     - package dummy (at node_modules/dummy) is linked
 ```
 
-and exit with code `1` if one or many packages npm-link'ed are found. Big ups to @c-eliasson for cleaning that up!
+and exit with code `1` if one or many packages npm-link'ed are found. Big ups to [@c-eliasson](https://github.com/c-eliasson) for cleaning that up!
 
 #### As a pre-version check
 
