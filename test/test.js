@@ -18,7 +18,7 @@ describe('simple project', function () {
 
   function cb (pkgName, foundPath) {
     pkgList.push(pkgName)
-    foundPathList.push(foundPath)
+    foundPathList.push(path.normalize(foundPath))
   }
 
   before(function (done) {
@@ -50,10 +50,10 @@ describe('simple project', function () {
     })
   })
 
-  it('should make cmd.js throw an error', function (done) {
+  it('should make cmd.js log', function (done) {
     exec(CMD + pathToProject, function (err, stdout, stderr) {
       if (err) assert.ok(err)
-      assert.ok(/Some npm-link'ed packaged were found:/.test(stderr))
+      assert.ok(/Some npm-link'ed packaged were found:/.test(stdout))
 
       done()
     })
@@ -107,11 +107,11 @@ describe('nested project', function () {
     setTimeout(done, DELAY)
   })
 
-  it('should make cmd.js throw an error', function (done) {
+  it('should make cmd.js log', function (done) {
     exec(CMD + pathToProject, function (err, stdout, stderr) {
       if (err) assert.ok(err)
 
-      assert.ok(/Some npm-link'ed packaged were found:/.test(stderr))
+      assert.ok(/Some npm-link'ed packaged were found:/.test(stdout))
 
       done()
     })
