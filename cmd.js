@@ -20,7 +20,7 @@ function cb (pkgName, foundPath) {
 function log () {
   var header = 'Some npm-link\'ed packaged were found:'
 
-  console.error(header + '\n' + list.join('\n') + '\n')
+  console.log(header + '\n' + list.join('\n') + '\n')
   process.exitCode = 1
 }
 
