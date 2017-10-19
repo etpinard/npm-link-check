@@ -13,7 +13,7 @@ CLI utility that checks whether a project's current node modules tree contains n
 
 So that you don't build a distributed bundle containing linked packages ever again!
 
-As of `v1.2.0`, `npm-link-check` even works with npm [scoped](https://docs.npmjs.com/misc/scope) packages. Big ups [@Istenes](https://github.com/Istenes) for that PR :beers:
+`npm-link-check` even works with npm [scoped](https://docs.npmjs.com/misc/scope) packages. Big ups [@Istenes](https://github.com/Istenes) for that PR :beers:
 
 
 ## Install
@@ -45,7 +45,7 @@ Some npm-link\'ed packaged were found:
     - package dummy (at node_modules/dummy) is linked
 ```
 
-and exit with code `1` if one or many packages npm-link'ed are found.
+and exit with code `1` if one or many packages npm-link'ed are found. Big ups to @c-eliasson for cleaning that up!
 
 #### As a pre-version check
 
