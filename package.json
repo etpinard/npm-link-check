@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "assert": "^1.4.1",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.2",
     "fs-extra": "^5.0.0",
     "is-plain-object": "^2.0.1",
     "mocha": "^5.2.0",
