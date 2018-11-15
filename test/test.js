@@ -29,11 +29,11 @@ describe('simple project', function () {
   })
 
   it('should have 2 linked module detected', function () {
-    assert.equal(pkgList.length, 2)
+    assert.strictEqual(pkgList.length, 2)
   })
 
   it('should have 2 linked paths detected', function () {
-    assert.equal(foundPathList.length, 2)
+    assert.strictEqual(foundPathList.length, 2)
   })
 
   it('should list the linked module names', function () {
@@ -80,11 +80,11 @@ describe('nested project', function () {
   })
 
   it('should have 3 linked module detected', function () {
-    assert.equal(pkgList.length, 3)
+    assert.strictEqual(pkgList.length, 3)
   })
 
   it('should have 3 linked paths detected', function () {
-    assert.equal(foundPathList.length, 3)
+    assert.strictEqual(foundPathList.length, 3)
   })
 
   it('should list the linked module names', function () {
@@ -138,11 +138,11 @@ describe('scoped project', function () {
   })
 
   it('should have 2 paths detected', function () {
-    assert.equal(pkgList.length, 2)
+    assert.strictEqual(pkgList.length, 2)
   })
 
   it('should have 2 linked paths detected', function () {
-    assert.equal(foundPathList.length, 2)
+    assert.strictEqual(foundPathList.length, 2)
   })
 })
 
@@ -166,17 +166,17 @@ describe('clean project', function () {
   })
 
   it('should have 0 linked module detected', function () {
-    assert.equal(pkgList.length, 0)
+    assert.strictEqual(pkgList.length, 0)
   })
 
   it('should have 0 linked paths detected', function () {
-    assert.equal(foundPathList.length, 0)
+    assert.strictEqual(foundPathList.length, 0)
   })
 
   it('should not make cmd.js throw an error', function (done) {
     exec(CMD + pathToProject, function (err) {
       if (err) assert.fail(err, null)
-      assert.equal(err, null)
+      assert.strictEqual(err, null)
 
       done()
     })
