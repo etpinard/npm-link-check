@@ -31,7 +31,7 @@
   "devDependencies": {
     "assert": "^1.4.1",
     "coveralls": "^3.0.2",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^7.0.1",
     "is-plain-object": "^2.0.1",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
