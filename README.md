@@ -5,10 +5,6 @@
 [![Build Status](https://travis-ci.org/etpinard/npm-link-check.svg?branch=master)](https://travis-ci.org/etpinard/npm-link-check)
 [![Coverage Status](https://coveralls.io/repos/github/etpinard/npm-link-check/badge.svg?branch=master)](https://coveralls.io/github/etpinard/npm-link-check?branch=master)
 
-[![Dependency Status](https://david-dm.org/etpinard/npm-link-check.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check)
-[![devDependency Status](https://david-dm.org/etpinard/npm-link-check/dev-status.svg?style=flat-square)](https://david-dm.org/etpinard/npm-link-check#info=devDependencies)
-[![Greenkeeper badge](https://badges.greenkeeper.io/etpinard/npm-link-check.svg)](https://greenkeeper.io/)
-
 CLI utility that checks whether a project's current node modules tree contains npm-link'ed packages.
 
 So that you don't build a distributed bundle containing linked packages ever again!
