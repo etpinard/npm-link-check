@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/etpinard/npm-link-check#readme",
   "dependencies": {
-    "glob": "^7.1.3"
+    "glob": "^7.1.6"
   },
   "devDependencies": {
     "assert": "^2.0.0",
