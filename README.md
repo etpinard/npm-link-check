@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/npm-link-check.svg)](https://badge.fury.io/js/npm-link-check)
 
-[![Build Status](https://travis-ci.org/etpinard/npm-link-check.svg?branch=master)](https://travis-ci.org/etpinard/npm-link-check)
+[![example workflow](https://github.com/etpinard/npm-link-check/actions/workflows/ci.yml/badge.svg)](https://github.com/etpinard/npm-link-check/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/etpinard/npm-link-check/badge.svg?branch=master)](https://coveralls.io/github/etpinard/npm-link-check?branch=master)
 
 CLI utility that checks whether a project's current node modules tree contains npm-link'ed packages.
