@@ -66,6 +66,6 @@ aborted.
 
 ## Credits
 
-2021 Étienne Tétreault-Pinard. MIT License
+2023 Étienne Tétreault-Pinard. MIT License
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
