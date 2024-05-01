@@ -1,15 +1,15 @@
-var fs = require('fs-extra')
-var path = require('path')
-var isPlainObject = require('is-plain-object')
+const fs = require('fs-extra')
+const path = require('path')
+const isPlainObject = require('is-plain-object')
 
-var buildPath = path.join(__dirname, '..', 'build')
-var dirName = path.basename(__filename).split('.')[0]
-var dirPath = path.join(buildPath, dirName)
-var pathToFakeLinkTarget = path.join(buildPath, 'fake.js')
+const buildPath = path.join(__dirname, '..', 'build')
+const dirName = path.basename(__filename).split('.')[0]
+const dirPath = path.join(buildPath, dirName)
+const pathToFakeLinkTarget = path.join(buildPath, 'fake.js')
 
-var fakeContent = 'module.exports = {};\n'
+const fakeContent = 'module.exports = {};\n'
 
-var fakeModules = {
+const fakeModules = {
   module1: {
     module11: {
       module111: {
@@ -33,16 +33,16 @@ function getNodeModulesPath (rootPath) {
 
 function makeModules (rootPath, fakeModules) {
   Object.keys(fakeModules).forEach(function (fakeModuleName) {
-    var fakeModule = fakeModules[fakeModuleName]
-    var nodeModulesPath = getNodeModulesPath(rootPath)
-    var pathToFakeModule = path.join(nodeModulesPath, fakeModuleName)
+    const fakeModule = fakeModules[fakeModuleName]
+    const nodeModulesPath = getNodeModulesPath(rootPath)
+    const pathToFakeModule = path.join(nodeModulesPath, fakeModuleName)
 
     if (isPlainObject(fakeModule)) {
       fs.emptyDirSync(pathToFakeModule)
       makeModules(pathToFakeModule, fakeModule)
     } else {
       if (fakeModule === '') {
-        var pathToFakeIndex = path.join(pathToFakeModule, 'index.js')
+        const pathToFakeIndex = path.join(pathToFakeModule, 'index.js')
 
         fs.emptyDirSync(pathToFakeModule)
         fs.writeFileSync(pathToFakeIndex, fakeContent)

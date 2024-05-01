@@ -1,6 +1,6 @@
-var fs = require('fs')
-var path = require('path')
-var glob = require('glob')
+const fs = require('fs')
+const path = require('path')
+const glob = require('glob')
 
 /**
  * @param {string} pathToRoot path to root of project
@@ -13,7 +13,7 @@ module.exports = function npmLinkCheck (pathToRoot, cb) {
 }
 
 function globNodeModules (startPath, cb) {
-  var pathToNodeModules
+  let pathToNodeModules
 
   // if we have a scope we should check if the modules inside the folder is linked
   if (startPath.includes('@')) {
@@ -32,7 +32,7 @@ function globNodeModules (startPath, cb) {
         if (stats.isDirectory()) {
           globNodeModules(foundPath, cb)
         } else if (stats.isSymbolicLink()) {
-          var pkgName = path.basename(foundPath)
+          const pkgName = path.basename(foundPath)
           cb(pkgName, foundPath)
         }
       })
