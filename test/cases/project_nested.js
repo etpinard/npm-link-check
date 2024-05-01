@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
-const isPlainObject = require('is-plain-object')
+const { isPlainObject } = require('is-plain-object')
 
 const buildPath = path.join(__dirname, '..', 'build')
 const dirName = path.basename(__filename).split('.')[0]
