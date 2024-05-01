@@ -1,20 +1,20 @@
 /* eslint-env mocha */
 
-var path = require('path')
-var assert = require('assert')
-var glob = require('glob')
-var exec = require('child_process').exec
-var npmLinkCheck = require('../index.js')
+const path = require('path')
+const assert = require('assert')
+const glob = require('glob')
+const exec = require('child_process').exec
+const npmLinkCheck = require('../index.js')
 
-var CMD = 'node ' + path.join(__dirname, '..', 'cmd.js') + ' '
-var DELAY = 1000
+const CMD = 'node ' + path.join(__dirname, '..', 'cmd.js') + ' '
+const DELAY = 1000
 
 describe('simple project', function () {
-  var makeProject = require('./cases/project_simple')
-  var pathToProject = path.join(__dirname, 'build', 'project_simple')
+  const makeProject = require('./cases/project_simple')
+  const pathToProject = path.join(__dirname, 'build', 'project_simple')
 
-  var pkgList = []
-  var foundPathList = []
+  const pkgList = []
+  const foundPathList = []
 
   function cb (pkgName, foundPath) {
     pkgList.push(pkgName)
@@ -44,7 +44,7 @@ describe('simple project', function () {
 
   it('should list the linked paths', function () {
     ['module4', 'module5'].forEach(function (moduleName) {
-      var pathToModule = path.join(pathToProject, 'node_modules', moduleName)
+      const pathToModule = path.join(pathToProject, 'node_modules', moduleName)
 
       assert.ok(foundPathList.indexOf(pathToModule) !== -1)
     })
@@ -61,11 +61,11 @@ describe('simple project', function () {
 })
 
 describe('nested project', function () {
-  var makeProject = require('./cases/project_nested')
-  var pathToProject = path.join(__dirname, 'build', 'project_nested')
+  const makeProject = require('./cases/project_nested')
+  const pathToProject = path.join(__dirname, 'build', 'project_nested')
 
-  var pkgList = []
-  var foundPathList = []
+  const pkgList = []
+  const foundPathList = []
 
   function cb (pkgName, foundPath) {
     pkgList.push(pkgName)
@@ -98,7 +98,7 @@ describe('nested project', function () {
       glob(pathToProject + '/**/' + moduleName, function (err, files) {
         if (err) assert.fail(err, null)
 
-        var pathToModule = files[0]
+        const pathToModule = files[0]
 
         assert.ok(foundPathList.indexOf(pathToModule) !== -1)
       })
@@ -119,11 +119,11 @@ describe('nested project', function () {
 })
 
 describe('scoped project', function () {
-  var makeProject = require('./cases/project_scoped')
-  var pathToProject = path.join(__dirname, 'build', 'project_scoped')
+  const makeProject = require('./cases/project_scoped')
+  const pathToProject = path.join(__dirname, 'build', 'project_scoped')
 
-  var pkgList = []
-  var foundPathList = []
+  const pkgList = []
+  const foundPathList = []
 
   function cb (pkgName, foundPath) {
     pkgList.push(pkgName)
@@ -147,11 +147,11 @@ describe('scoped project', function () {
 })
 
 describe('clean project', function () {
-  var makeProject = require('./cases/project_clean')
-  var pathToProject = path.join(__dirname, 'build', 'project_clean')
+  const makeProject = require('./cases/project_clean')
+  const pathToProject = path.join(__dirname, 'build', 'project_clean')
 
-  var pkgList = []
-  var foundPathList = []
+  const pkgList = []
+  const foundPathList = []
 
   function cb (pkgName, foundPath) {
     pkgList.push(pkgName)

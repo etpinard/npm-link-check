@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-var fs = require('fs')
-var path = require('path')
-var npmLinkCheck = require('./index')
+const fs = require('fs')
+const path = require('path')
+const npmLinkCheck = require('./index')
 
-var pathToRoot = process.argv[2] ? process.argv[2] : '.'
-var pathToNodeModules = path.join(pathToRoot, 'node_modules')
-var list = []
+const pathToRoot = process.argv[2] ? process.argv[2] : '.'
+const pathToNodeModules = path.join(pathToRoot, 'node_modules')
+const list = []
 
 function cb (pkgName, foundPath) {
   list.push([
@@ -18,7 +18,7 @@ function cb (pkgName, foundPath) {
 }
 
 function log () {
-  var header = 'Some npm-link\'ed packaged were found:'
+  const header = 'Some npm-link\'ed packaged were found:'
 
   console.log(header + '\n' + list.join('\n') + '\n')
   process.exitCode = 1

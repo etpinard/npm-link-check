@@ -1,22 +1,22 @@
-var fs = require('fs-extra')
-var path = require('path')
+const fs = require('fs-extra')
+const path = require('path')
 
-var buildPath = path.join(__dirname, '..', 'build')
-var dirName = path.basename(__filename).split('.')[0]
-var dirPath = path.join(buildPath, dirName)
-var nodeMoulesPath = path.join(dirPath, 'node_modules')
-var pathToFakeLinkTarget = path.join(buildPath, 'fake.js')
+const buildPath = path.join(__dirname, '..', 'build')
+const dirName = path.basename(__filename).split('.')[0]
+const dirPath = path.join(buildPath, dirName)
+const nodeMoulesPath = path.join(dirPath, 'node_modules')
+const pathToFakeLinkTarget = path.join(buildPath, 'fake.js')
 
-var fakeContent = 'module.exports = {};\n'
+const fakeContent = 'module.exports = {};\n'
 
-var fakeModules = [
+const fakeModules = [
   '@scope/unlinked',
   'module1',
   'module2',
   'module3'
 ]
 
-var fakeLinkedModules = [
+const fakeLinkedModules = [
   '@scope/linked',
   'module5'
 ]
@@ -27,15 +27,15 @@ module.exports = function make () {
   fs.writeFileSync(pathToFakeLinkTarget, fakeContent)
 
   fakeModules.forEach(function (fakeModule) {
-    var pathToFakeModule = path.join(nodeMoulesPath, fakeModule)
-    var pathToFakeIndex = path.join(pathToFakeModule, 'index.js')
+    const pathToFakeModule = path.join(nodeMoulesPath, fakeModule)
+    const pathToFakeIndex = path.join(pathToFakeModule, 'index.js')
 
     fs.emptyDirSync(pathToFakeModule)
     fs.writeFileSync(pathToFakeIndex, fakeContent)
   })
 
   fakeLinkedModules.forEach(function (fakeLinkedModule) {
-    var pathToFakeModule = path.join(nodeMoulesPath, fakeLinkedModule)
+    const pathToFakeModule = path.join(nodeMoulesPath, fakeLinkedModule)
 
     fs.ensureSymlinkSync(pathToFakeLinkTarget, pathToFakeModule)
   })
